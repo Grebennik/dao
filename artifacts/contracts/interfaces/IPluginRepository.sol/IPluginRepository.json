@@ -1,0 +1,65 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IPluginRepository",
+  "sourceName": "contracts/interfaces/IPluginRepository.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_name",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_pluginSetup",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_buildMetadata",
+          "type": "bytes"
+        }
+      ],
+      "name": "createVersion",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_name",
+          "type": "bytes32"
+        }
+      ],
+      "name": "latestVersion",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "pluginSetup",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes",
+              "name": "buildMetadata",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IPluginRepository.Version",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
