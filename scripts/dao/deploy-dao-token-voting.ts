@@ -1,3 +1,4 @@
+// Token Voting DAO - "general payment token"
 import {
   Client,
   CreateDaoParams,
@@ -8,7 +9,7 @@ import {
   VotingMode,
 } from "@aragon/sdk-client";
 import { GasFeeEstimation } from "@aragon/sdk-client-common";
-import { createContext } from "./utils/context";
+import { createContext } from "../utils/context";
 
 async function main() {
   try {
@@ -17,7 +18,7 @@ async function main() {
     const client: Client = new Client(context);
 
     const metadata: DaoMetadata = {
-      name: "My DAO mirko1",
+      name: "Token Voting DAO | Mirko",
       description: "This is a description",
       links: [{
         name: "Web site",
@@ -36,18 +37,18 @@ async function main() {
         minDuration: 60 * 60 * 24 * 2, // seconds
         minParticipation: 0.25, // 25%
         supportThreshold: 0.5, // 50%
-        minProposerVotingPower: BigInt("5000"), // default 0
+        minProposerVotingPower: BigInt(0), // default 0
         votingMode: VotingMode.EARLY_EXECUTION, // default is STANDARD. other options: EARLY_EXECUTION, VOTE_REPLACEMENT
       },
       newToken: {
-        name: "Token", // the name of your token
-        symbol: "TOK", // the symbol for your token. shouldn't be more than 5 letters
+        name: "1Token", // the name of your token
+        symbol: "1TOK", // the symbol for your token. shouldn't be more than 5 letters
         decimals: 18, // the number of decimals your token uses
         minter: "0xDFbcefa92C1dfACA330fEaB08ee0FD6Eff9d6A50", // optional. if you don't define any, we'll use the standard OZ ERC20 contract. Otherwise, you can define your own token minter contract address.
         balances: [
           { // Defines the initial balances of the new token
             address: "0xDFbcefa92C1dfACA330fEaB08ee0FD6Eff9d6A50", // address of the account to receive the newly minted tokens
-            balance: BigInt(10), // amount of tokens that address should receive
+            balance: BigInt("500000000000000000000000"), // amount of tokens that address should receive
           },
         ],
       },
@@ -59,7 +60,7 @@ async function main() {
 
     const createDaoParams: CreateDaoParams = {
       metadataUri,
-      ensSubdomain: "my-org-mirko1", // my-org.dao.eth
+      ensSubdomain: "1tok-mirko1", // my-org.dao.eth
       plugins: [tokenVotingInstallItem], // plugin array cannot be empty or the transaction will fail. you need at least one governance mechanism to create your DAO.
     };
 
