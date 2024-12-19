@@ -18,11 +18,11 @@ async function main() {
     const client: Client = new Client(context);
 
     const metadata: DaoMetadata = {
-      name: "Token Voting DAO | Mirko",
-      description: "This is a description",
+      name: "Test DAO | Mirko77",
+      description: "This is a 777",
       links: [{
         name: "Web site",
-        url: "https://...",
+        url: "https://..",
       }],
     };
 
@@ -34,21 +34,21 @@ async function main() {
     // These would be the plugin params if you need to mint a new token for the DAO to enable TokenVoting.
     const tokenVotingPluginInstallParams: TokenVotingPluginInstall = {
       votingSettings: {
-        minDuration: 60 * 60 * 24 * 2, // seconds
+        minDuration: 300, // seconds
         minParticipation: 0.25, // 25%
         supportThreshold: 0.5, // 50%
         minProposerVotingPower: BigInt(0), // default 0
         votingMode: VotingMode.EARLY_EXECUTION, // default is STANDARD. other options: EARLY_EXECUTION, VOTE_REPLACEMENT
       },
       newToken: {
-        name: "1Token", // the name of your token
-        symbol: "1TOK", // the symbol for your token. shouldn't be more than 5 letters
+        name: "8TOKENS", // the name of your token
+        symbol: "78TOK", // the symbol for your token. shouldn't be more than 5 letters
         decimals: 18, // the number of decimals your token uses
         minter: "0xDFbcefa92C1dfACA330fEaB08ee0FD6Eff9d6A50", // optional. if you don't define any, we'll use the standard OZ ERC20 contract. Otherwise, you can define your own token minter contract address.
         balances: [
           { // Defines the initial balances of the new token
             address: "0xDFbcefa92C1dfACA330fEaB08ee0FD6Eff9d6A50", // address of the account to receive the newly minted tokens
-            balance: BigInt("500000000000000000000000"), // amount of tokens that address should receive
+            balance: BigInt("5"), // amount of tokens that address should receive
           },
         ],
       },
@@ -60,7 +60,7 @@ async function main() {
 
     const createDaoParams: CreateDaoParams = {
       metadataUri,
-      ensSubdomain: "1tok-mirko1", // my-org.dao.eth
+      ensSubdomain: "1tok-mirko77789", // my-org.dao.eth
       plugins: [tokenVotingInstallItem], // plugin array cannot be empty or the transaction will fail. you need at least one governance mechanism to create your DAO.
     };
 
